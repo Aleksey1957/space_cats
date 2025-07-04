@@ -8,9 +8,10 @@ def dialogue_mode(sprite, text):
     sprite.update()
     screen.blit(space, (0, 0))
     screen.blit(sprite.image, sprite.rect)
+    if text_number < len(text) - 1:
+        text1 = f1.render(text[text_number], True, pg.Color('white'))
 
-    text1 = f1.render(text[text_number], True, pg.Color('white'))
-    screen.blit(text1, (290, 450))
+        screen.blit(text1, (290, 450))
     if text_number < len(text) - 1:
         text2 = f1.render(text[text_number + 1], True, pg.Color('white'))
         screen.blit(text2, (280, 480))
@@ -36,7 +37,7 @@ alien = Alien()
 space = pg.image.load('space.png').convert()
 
 heart = pg.image.load('heart.png').convert_alpha()
-heart = pg.transform.scale(heart, (30,30))
+heart = pg.transform.scale(heart, (30, 30))
 heart_count = 3
 
 meteorites = pg.sprite.Group()
